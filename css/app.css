@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  background: #159957;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #155799, #159957);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #155799, #159957); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login {
+  background: #95a5a6;
+  border-radius: 8px;
+  text-align: center;
+  width: 320px;
+  padding: 20px;
+}
+.login h3 {
+  margin: 0 auto 10px;
+}
+.login input {
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  display: block;
+  height: 40px;
+  margin: 10px auto 0;
+  padding: 0 10px;
+  width: 100%;
+}
+.login input[type=submit] {
+  background: #27ae60;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
