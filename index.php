@@ -1,15 +1,13 @@
 <?php
   session_start();
-?>
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Välkommen | App</title>
-    <link rel="stylesheet" href="css/app.css">
-  </head>
-  <body>
-    <h1>Välkommen <?php echo $_SESSION['username']; ?></h1>
+  $title = 'Välkommen';
+  include "includes/header.php";
+ ?>
+<?php if ($_SESSION) : ?>
+    <h1>Välkommen, <?php echo $_SESSION['username']; ?></h1>
+    <a href="logout.php">Logga ut <?php echo $_SESSION['username']; ?></a>
+  <?php else : ?>
+    <h1>FA BORT!</h1>
+<?php endif; ?>
   </body>
 </html>

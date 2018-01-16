@@ -6,6 +6,9 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    $username = mysqli_real_escape_string($connection, $username);
+    $username = mysqli_real_escape_string($connection, $password);
+
     $query = "SELECT * FROM users WHERE username = '{$username}'";
     $select_user_query = mysqli_query($connection, $query);
 
@@ -27,15 +30,10 @@
       header("location: login.php");
     }
   }
+  $title = 'Logga in!';
+  include "includes/header.php";
 ?>
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Login | App</title>
-    <link rel="stylesheet" href="css/app.css">
-  </head>
-  <body>
+
 
     <form class="login" action="login.php" method="post">
       <h3>Logga in</h3>
