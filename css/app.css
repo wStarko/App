@@ -44,3 +44,10 @@ body {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+.login a {
+  color: #fff;
+  font-size: 14px;
+  display: block;
+  margin: 18px auto 0;
+
+}
