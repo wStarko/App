@@ -1,3 +1,8 @@
+<?php
+  include "db.php";
+  include "functions.php";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,4 +10,4 @@
 <title><?php echo $title; ?> | App</title>
 <link rel="stylesheet" href="css/app.css">
 </head>
-<body>
+<body id="<?php if (isset($bodyID)) { echo $bodyID; }?>">

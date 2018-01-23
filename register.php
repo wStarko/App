@@ -1,33 +1,43 @@
 <?php
-  include 'includes/db.php';
+  $title = 'Registrera';
+  $bodyID = 'register';
+  include 'includes/header.php';
+
   session_start();
 
   if (isset($_POST['register'])){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $username = mysqli_real_escape_string($connection, $username);
-    $password = mysqli_real_escape_string($connection, $password);
+    if (usernameExists($username)) {
+      echo "Användarnamnet finns redan";
+    }
+    else {
+      $username = mysqli_real_escape_string($connection, $username);
+      $password = mysqli_real_escape_string($connection, $password);
 
-    // Krypterar $password
+      // Krypterar $password
 
-    $hashFormat = "$2y$10$";
-    $salt = "W3HSfK4YS6DpGq5TxKDx4b";
-    $hash_and_salt = $hashFormat . $salt;
-    $password = crypt($password, $hash_and_salt);
+      $hashFormat = "$2y$10$";
+      $salt = "W3HSfK4YS6DpGq5TxKDx4b";
+      $hash_and_salt = $hashFormat . $salt;
+      $password = crypt($password, $hash_and_salt);
 
 
-    $query = "INSERT INTO users(username, password) ";
-    $query .= "VALUES ('$username', '$password')";
+      $query = "INSERT INTO users(username, password) ";
+      $query .= "VALUES ('$username', '$password')";
 
-    $result = mysqli_query($connection, $query);
-    if (!$result) {
-      die("Query failed") . mysqli_error($connection);
+      $result = mysqli_query($connection, $query);
+      if (!$result) {
+        die("Query failed") . mysqli_error($connection);
+      }
+
+      header("Location: login.php");
     }
 
+
+
   }
-  $title = 'Registrera!';
-  include "includes/header.php";
 ?>
 
 

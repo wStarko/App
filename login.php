@@ -1,6 +1,9 @@
 <?php
-  include 'includes/db.php';
+  $title = 'Logga in!';
+  $bodyID = 'login';
   session_start();
+  include "includes/header.php";
+
 
   if (isset($_POST['login'])){
     $username = $_POST['username'];
@@ -25,15 +28,14 @@
     $password = crypt($password, $db_password);
 
     if ($username === $db_username && $password === $db_password) {
+      $_SESSION['id'] = $db_id;
       $_SESSION['username'] = $db_username;
       header("Location: index.php");
     }
     else {
-      header("Location: login.php");
+      $errorMessage = "Fel användarnamn eller lösenord";
     }
   }
-  $title = 'Logga in!';
-  include "includes/header.php";
 ?>
 
 
@@ -44,6 +46,10 @@
       <input type="submit" name="login" value="Logga in">
       <a href="register.php">Ny användare? Registrera dig!</a>
     </form>
+
+    <?php if(isset($errorMessage)) : ?>
+      <div id="alert"><?php echo $errorMessage; ?></div>
+    <?php endif; ?>
 
   </body>
 </html>
