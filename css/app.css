@@ -104,3 +104,6 @@ section {
 section h2 {
   text-align: center;
 }
+section ul li a {
+  float: right;
+}

@@ -18,13 +18,20 @@
     <ul>
       <?php
         $userID = $_SESSION['id'];
-        $query = "SELECT title FROM tasks WHERE user_id = $userID" ;
+        $query = "SELECT * FROM tasks WHERE user_id = $userID" ;
         $result = mysqli_query($connection, $query);
 
-        while ($row = mysqli_fetch_array($result)) {
-          echo "<li>" . $row['title'] . "</li>";
-        }
+
+        while($row = mysqli_fetch_array($result)) :
       ?>
+
+        <li>
+          <?php echo $row['title']; ?>
+          <a href="edit.php?taskID=<?php echo $row['id'] ?>&taskName=<?php echo $row['title'] ?>">Edit</a>
+          <a href="delete.php?taskID=<?php echo $row['id'] ?>">X</a>
+        </li>
+
+    <?php endwhile; ?>
     </ul>
     <form action="index.php" method="post">
       <input type="text" name="taskName">
