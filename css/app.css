@@ -1,16 +1,27 @@
+/*Google fonts*/
+@import url('https://fonts.googleapis.com/css?family=Oswald');
 /*Landing Page*/
 html, body {
   height: 100%;
   position: relative;
 }
 
+body {
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 /*Splash screen*/
 #splashScreen {
-  background: #000;
-  justify-content: center;
   align-items: center;
+  background: radial-gradient(#414345, #232526);
+  background: -o-radial-gradient(#414345, #232526);
+  background: -webkit-radial-gradient(#414345, #232526);
+  justify-content: center;
   display: flex;
   position: fixed;
+  flex-direction: column;
   z-index: 2;
   bottom: 0;
   top: 0;
@@ -26,6 +37,38 @@ html, body {
   height: 33.333333%;
   width: 33.333333%;
   display: block;
+}
+
+#splashScreen blockquote {
+  color: #fff;
+  margin: 0;
+  font-family: 'Oswald', sans-serif;
+}
+
+#splashScreen blockquote p {
+  margin: 0;
+  font-size: 24px;
+}
+
+#author {
+  font-size: 14px;
+  float: right;
+  opacity: 75%;
+}
+#author:before {
+  content: '–';
+  margin: 0 5px 0 0;
+}
+#quote:before, #quote:after, #author:before{
+  display: inline-block;
+}
+#quote:before {
+  content: '“';
+  margin: 0 5px 0 0;
+}
+#quote:after {
+  content: '”';
+  margin: 0 0 0 5px;
 }
 /*Splash screen END*/
 
@@ -44,22 +87,33 @@ video {
 main {
   text-align: center;
   font-size: 32px;
-  width: 400px;
   color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
 }
-main, p {
-  margin-top: 10px;
+main img {
+    margin: 0 auto 40px;
 }
-p {
+
+main p span {
+  color: #C1272D;
+  font-weight: bold;
+}
+
+main p {
   background: #FF931E;
   border-radius: 5px;
   margin-top: 15px;
+  font-family: 'Oswald', sans-serif;
   padding-bottom: 7px;
 }
+
+/*Navigation*/
+  .navbar-brand img {
+    height: 71,5px;
+    width: 75px;
+  }
+/*Navigation END*/
+
 .btn {
   background: #FF931E;
   border-color: #000;
@@ -74,7 +128,7 @@ p {
 @keyframes splashScreenAnimation {
   from {
     opacity: 0;
-    transform: translate3d(0, -300%, 0);
+    transform: translate3d(0, -400%, 0);
   }
   75% {
     opacity: 50;

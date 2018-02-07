@@ -1,4 +1,7 @@
 <?php
+
+  $appname = "todo";
+
   function usernameExists($username) {
     global $connection;
 
@@ -27,6 +30,21 @@
     }
     else {
       echo "wtf?";
+    }
+  }
+
+  function fixUsernameInTitle() {
+    global $title;
+    if (isset($_SESSION['username'])) {
+      $username = $_SESSION['username'];
+      if (strlen($username) > 0) {
+        if ($username[strlen($username) - 1] !== 's') {
+          $title = $username . 's' . ' uppgifter';
+        }
+        else {
+          $title = $username . ' uppgifter';
+        }
+      }
     }
   }
 ?>
