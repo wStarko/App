@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-  //if (sessionStorage.setItem('splashScreen') !== 'true') {
+  if (sessionStorage.setItem('splashScreen') !== 'true') {
 
   var quotes = [
     {
@@ -23,7 +23,7 @@ $( document ).ready(function() {
     $('blockquote').append('<footer id="author"></footer>')
     $('#quote').html(randomQuotes.quote);
     $('#author').html(randomQuotes.author);
-  //  $('#splashScreen').show().delay(2500).fadeOut();
+    $('#splashScreen').show().delay(2500).fadeOut();
     sessionStorage.setitem('splashScreen', 'true');
-  //}
+  }
 });

@@ -7,7 +7,7 @@
   ?>
     <!-- Background video -->
     <video loop muted autoplay>
-      <source src="vid/street.mp4" type="video/mp4">
+      <source src="vid/kaffe.mp4" type="video/mp4">
     Your browser does not support the video tag.
     </video>
     <!-- Background video END -->
