@@ -10,7 +10,7 @@
     $password = $_POST['password'];
 
     if (usernameExists($username)) {
-      echo "Användarnamnet finns redan";
+      $errorMessage = "Användarnamnet finns redan";
     }
     else {
       $username = mysqli_real_escape_string($connection, $username);
@@ -41,12 +41,16 @@
 ?>
 
 
-    <form class="login" action="register.php" method="post">
-      <h3>Registrera</h3>
-      <input type="text" name="username" placeholder="Användarnamn">
-      <input type="password" name="password" placeholder="Lösenord">
-      <input type="submit" name="register" value="Registrera!">
-    </form>
+<form class="col-12 col-sm-8 col-lg-4 login" action="register.php" method="post">
+  <img src="img/todo.svg" class="img-fluid img" alt="ToDo">
+  <h3 class="formHeading">Registrera dig!</h3>
+  <div class="form-group">
+    <input type="text" name="username" class="form-control" placeholder="Användarnamn" required autofocus>
+  </div>
+  <div class="form-group">
+    <input type="password" name="password" class="form-control" placeholder="Lösenord" required>
+  </div>
+  <button type="submit" name="register" class="col-12 btn2 btn-outline-light">Registrera</button>
 
   </body>
 </html>

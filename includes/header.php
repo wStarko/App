@@ -10,6 +10,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
      <link rel="stylesheet" href="css/app.css">
+     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
      <title><?php echo $title . "&raquo; " . $appname?></title>
    </head>
    <?php if (isset($bodyClass)) : ?>
@@ -17,3 +18,4 @@
    <?php else: ?>
    <body>
    <?php endif; ?>
+  

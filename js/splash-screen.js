@@ -3,16 +3,16 @@ $( document ).ready(function() {
 
   var quotes = [
     {
-      quote: "Citat 1",
-      author: "Author 1"
+      quote: "If you tell the truth, you don't have to remember anything.",
+      author: "Mark Twain"
     },
     {
-      quote: "Citat 2",
-      author: "Author 2"
+      quote: "Always forgive your enemies; nothing annoys them so much.",
+      author: "Oscar Wilde"
     },
     {
-      quote: "Citat 3",
-      author: "Author 3"
+      quote: "What can you do the man is a god!",
+      author: "EemeliTV_"
     }
   ];
   var randomQuotes = quotes[Math.floor(Math.random() * quotes.length)];

@@ -23,6 +23,7 @@
       $db_id = $row['id'];
       $db_username = $row['username'];
       $db_password = $row['password'];
+      $db_profilepic = $row['profilepic'];
     }
 
     $password = crypt($password, $db_password);
@@ -30,25 +31,30 @@
     if ($username === $db_username && $password === $db_password) {
       $_SESSION['id'] = $db_id;
       $_SESSION['username'] = $db_username;
-      header("Location: index.php");
+      $_SESSION['profilepic'] = $db_profilepic;
+      header("Location: admin.php");
     }
     else {
       $errorMessage = "Fel användarnamn eller lösenord";
     }
   }
 ?>
+  <form class="col-12 col-sm-8 col-lg-4 login" action="login.php" method="post">
+    <img src="img/todo.svg" class="img-fluid img" alt="ToDo">
+    <h3 class="formHeading">Logga in</h3>
+    <div class="form-group">
+      <input type="text" name="username" class="form-control" placeholder="Användarnamn" required autofocus>
+    </div>
+    <div class="form-group">
+      <input type="password" name="password" class="form-control" placeholder="Lösenord" required>
+    </div>
+    <button type="submit" name="login" class="col-12 btn2 btn-outline-light">Logga in</button>
+    <a href="register.php" class="form-text text-muted text-center">Ny användare? Registrera dig här</a>
+  </form>
 
-
-    <form class="login" action="login.php" method="post">
-      <h3>Logga in</h3>
-      <input type="text" name="username" placeholder="Användarnamn">
-      <input type="password" name="password" placeholder="Lösenord">
-      <input type="submit" name="login" value="Logga in">
-      <a href="register.php">Ny användare? Registrera dig!</a>
-    </form>
 
     <?php if(isset($errorMessage)) : ?>
-      <div id="alert"><?php echo $errorMessage; ?></div>
+      <div class="alert"><?php echo $errorMessage; ?></div>
     <?php endif; ?>
 
   </body>

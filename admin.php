@@ -1,7 +1,7 @@
 <?php
   session_start();
   include "includes/header.php";
-
+  fixUsernameInTitle();
 
   if (isset($_POST['addTask'])) {
     addTask();
@@ -14,7 +14,8 @@
 
   <div class="container-fluid">
     <div class="row">
-        <?php include "includes/tasks.php"; ?>
+        <?php include "includes/profile.php" ?>
+        <?php //include "includes/tasks.php"; ?>
     </div>
   </div>
 

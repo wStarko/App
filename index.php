@@ -1,4 +1,6 @@
 <?php
+$title = 'Välkommen';
+$bodyID = 'welcome';
   $bodyClass = "d-flex justify-content-center align-items-center";
   include 'includes/header.php';
   $query = "SELECT id FROM users";
